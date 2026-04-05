@@ -1,0 +1,185 @@
+body 
+{
+    font-family: "Inter", sans-serif;
+    background-color: #010729;
+    padding-top: 20px;
+    max-width: 100%;
+    /* overflow-x: hidden; */
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+/* --- Fluid Navbar Container --- */
+.navbar-custom {
+  background-color: white;
+  border-radius: 100px; /* High value for pill shape */
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+/* --- Responsive Brand Font --- */
+.navbar-brand {
+  color: #020B25 !important;
+  font-weight:900;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  /* Fluid Font: Min 14px, Scales with width, Max 22px */
+  font-size: clamp(20px, 1.2vw, 22px);
+  white-space: nowrap;
+}
+.hub-box {
+  background-color: rgb(255, 111, 0);
+  color: white;
+  padding: 2px 8px;
+  margin: 0 6px;
+  border-radius: 6px;
+}
+/* --- Nav Links Scaling --- */
+.nav-link {
+  color: #020B25 !important;
+  font-weight: 700;
+  padding: 0.5rem 0.8vw ; /* Spacing scales with width */
+  /* Fluid Font: Min 13px, Max 16px */
+  font-size: clamp(13px, 1.2vw, 16px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: orange;
+}
+/* --- Download App Button --- */
+.btn-download {
+  background-color: #020B25;
+  color: white     !important; /* Your deep green */
+  border-radius: 50px;
+  font-weight: 700;
+  white-space: nowrap;            /* Forces text into one row */
+  display: inline-flex;           /* Keeps it centered vertically */
+  align-items: center;            /* Centers text vertically */
+  padding: 0.5rem 1.2vw;          /* Responsive horizontal padding */
+  font-size: clamp(13px, 0.9vw, 14px); /* Scales font so it fits */  
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-download:hover {
+  background-color: rgb(255, 111, 0) !important; /* Brand Orange background */
+  color: #111827 !important; /* Text color becomes the deep green */
+}
+
+/* --- Responsive Logic --- */
+@media (max-width: 991px) {
+  .navbar-custom {
+    border-radius: 30px; /* Less rounded on mobile */
+    padding: 10px 20px;
+  }
+  .navbar-collapse {
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .nav-link {
+    font-size: 1.2rem !important; /* Keep readable on mobile tap */
+    padding: 10px 0 !important;
+  }
+  .btn-download {
+    margin: 10px 0;
+    display: inline-block;
+    font-size: 1rem !important;
+  }
+}
+/* --- Mobile Dropdown Fix --- */
+@media (max-width: 991px) {
+  /* Allow the dropdown menu to be visible when toggled */
+  .navbar-nav {
+    position: relative;
+  }
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* --- KEY FIX --- */
+    min-width: max-content; /* Box stretches to fit text */
+    padding: 10px 20px; /* Gives text some breathing room */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* z-index: 1000; */
+  }
+  .dropdown-item {
+    color: #333 !important; /* Dark text on white background */
+    text-align: center;
+    width: 100%;
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
+  }
+  /* Force display when Bootstrap adds the .show class */
+  .dropdown-menu.show {
+    width: 100% !important;
+    display: block !important;
+  }
+}
+/* Hover dropdown logic */
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+.hero-section {  
+    width: 100% !important;
+    height: 450px !important;
+}
+
+.banner {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-image {
+    width: 80%;
+    height: 100%;
+}
+
+.course-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.tabPlacement {
+    margin: 20px;
+    text-decoration: none;
+    background-color: #5EA5D7;
+    color: #010729;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+
+.tabPlacement:hover {
+    background-color: rgb(255, 111, 0);
+    color: white;
+}
+
+.tabVideo{
+  margin: 20px; 
+  text-decoration: none;
+  background-color: #5EA5D7;
+  color: #010729;
+  font-weight: 700;
+  padding: 10px 20px;
+}
+.tabVideo:hover {
+    background-color: rgb(255, 111, 0);
+    color: white;
+}
