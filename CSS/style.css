@@ -434,57 +434,88 @@ body {
   transform: scale(1.1); /* Zoom effect on hover */
 }
 
+  .alumni {
+      background-color: #010729; /* Matches your body color */
+      overflow: hidden;
+      padding: 40px 0;
+  }
+
+ /* --- Alumni Container --- */
 .alumni {
-    background-color: #010729; /* Matches your body color */
-    overflow: hidden;
+    background-color: #010729;
     padding: 40px 0;
+    overflow: hidden;
 }
 
+/* --- The Slider Row --- */
 .logo-slider {
     overflow: hidden;
-    padding: 30px 0;
+    padding: 15px 0; /* Reduced padding to tighten vertical space */
     background: white;
     white-space: nowrap;
     position: relative;
-    border-radius: 15px; /* Matches your card style */
-    display: flex;
+    border-radius: 15px;
+    margin: 10px auto; /* Centers the white boxes */
+    width: 95%;        /* Gives a little edge to the dark background */
 }
 
+/* --- The Animated Inner Div --- */
 .logos-slide {
-    display: inline-flex;
-    align-items: center;
-    animation: 25s slide infinite linear; /* Speed control: change 25s */
+    display: inline-block; /* Changed to inline-block for better spacing logic */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 25s;
 }
 
 .logos-slide img {
-    height: 40px; /* Adjust height as needed */
-    margin: 0 40px;
-    filter: grayscale(100%); /* Optional: makes logos professional */
+    height: 45px;      /* Slightly larger for visibility */
+    margin: 0 30px;    /* Horizontal gap between logos */
+    vertical-align: middle;
+    filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
 
 .logos-slide img:hover {
-    filter: grayscale(0%); /* Logos turn to color on hover */
+    filter: grayscale(0%);
 }
 
-/* Pause animation when user hovers over the section */
+/* --- Directions --- */
+
+/* Rows 1 & 3: Right to Left */
+.row-rtl .logos-slide {
+    animation-name: slide-left;
+}
+
+/* Row 2: Left to Right */
+.row-ltr .logos-slide {
+    animation-name: slide-right;
+}
+
+/* Pause on Hover */
 .logo-slider:hover .logos-slide {
     animation-play-state: paused;
 }
 
-@keyframes slide {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+/* --- KEYFRAMES --- */
+
+@keyframes slide-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 
-/* Responsive adjustment */
+@keyframes slide-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
     .logos-slide img {
         height: 30px;
-        margin: 0 20px;
+        margin: 0 15px;
+    }
+    .logo-slider {
+        width: 100%;
+        border-radius: 0;
     }
 }
