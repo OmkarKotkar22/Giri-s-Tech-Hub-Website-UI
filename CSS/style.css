@@ -105,30 +105,48 @@ body {
 }
 
 .hero-section {  
+    /* min-height: 50vh; */
+    /* max-height: 70vh; */
+    /* margin-bottom: 15rem; */
     width: 100% !important;
-    height: 460px !important;
+    /* Remove min-height: 50vh and max-height: 70vh */
+    height: auto; 
+    margin-bottom: 4rem; /* Professional spacing for desktop */
+    display: block;
 }
 
 .banner {
     width: 100%;
-    height: 460px;
+    height: auto; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .banner-image {
-    width: 80%;
-    height: 100%;
+    width: 90%;
+    height: auto; /* Maintains natural aspect ratio to prevent overlapping */
+    max-width: 1200px; /* Optional: prevents image from getting too huge on 4k monitors */
+    display: block;
+    margin: 0 auto;
+}
+
+.course-buttons {
+    padding: 3rem 0;
+    margin-top: 0; 
+    background-color: #010729;
+    position: relative;
+    z-index: 10;
 }
 
 .course-btn {
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    margin: 10px;
-    margin-top: 30px;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px auto 0;
+    max-width: 90vw;
+    padding: 0 10px;
 }
 
 .button {
@@ -201,6 +219,126 @@ body {
   transform: translate(0);
 }
 
+/* Comprehensive Mobile Responsiveness */
+
+/* Mobile First: Extra small devices (phones portrait <576px) */
+@media (max-width: 575.98px) {
+  .navbar-custom {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 16px;
+  }
+  
+  .hero-section {
+    margin-bottom: 1.5rem; /* More space on mobile */
+  }
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .course-buttons {
+    padding: 0.75rem 0 !important;
+    margin-top: 0.25rem !important;
+  }
+  
+  .course-btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0 !important;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 280px;
+    font-size: 15px;
+    padding: 0.75rem 1.25rem;
+    justify-content: center;
+  }
+
+.hero-section {  
+    width: 100% !important;
+    margin-bottom: 2rem; /* Small gap by default (mobile first) */
+}
+
+  .banner {
+    height: auto; /* Let the container follow the image height */
+  }
+
+.banner-image {
+    width: 90%;
+    height: auto; /* Let the height be determined by the image ratio */
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+  
+  .img-container {
+    height: 120px;
+  }
+  
+  .btn-course {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 0.85rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Small devices (landscape phones 576px+) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .course-btn {
+    gap: 18px;
+  }
+  
+  .hero-section {
+    margin-bottom: 2.5rem; /* Slightly more space for larger screens */
+  }
+  
+  .img-container {
+    height: 130px;
+  }
+}
+
+/* Medium devices (tablets 768px+) - enhance existing */
+@media (max-width: 991px) {
+  .navbar-custom {
+    padding: 1rem;
+  }
+  
+  /* .hero-section {
+    min-height: 55vh;
+  } */
+}
+
+/* Large tablets and small desktops */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .course-btn {
+    gap: 20px;
+  }
+}
+
+/* Ensure large screens */
+@media (min-width: 1200px) {
+  .navbar-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 /* Mobile specific font adjustment to ensure fit */
 @media (max-width: 480px) {
   .button {
@@ -224,7 +362,7 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 200px;
     height: 3px;
     background-color: #E76B00; /* Pattern Orange */
 }
@@ -244,7 +382,7 @@ body {
 
 .img-container {
     width: 100%;
-    height: 150px;
+    height: 140px;
     overflow: hidden; 
     display: flex;
     justify-content: center;
@@ -252,13 +390,10 @@ body {
 }
 
 .img-container img {
-    width: 80%;
-    height: 100%;
-    object-fit:contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    width: 85%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /* Pattern Color Button */
@@ -299,3 +434,57 @@ body {
   transform: scale(1.1); /* Zoom effect on hover */
 }
 
+.alumni {
+    background-color: #010729; /* Matches your body color */
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.logo-slider {
+    overflow: hidden;
+    padding: 30px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    border-radius: 15px; /* Matches your card style */
+    display: flex;
+}
+
+.logos-slide {
+    display: inline-flex;
+    align-items: center;
+    animation: 25s slide infinite linear; /* Speed control: change 25s */
+}
+
+.logos-slide img {
+    height: 40px; /* Adjust height as needed */
+    margin: 0 40px;
+    filter: grayscale(100%); /* Optional: makes logos professional */
+    transition: filter 0.3s ease;
+}
+
+.logos-slide img:hover {
+    filter: grayscale(0%); /* Logos turn to color on hover */
+}
+
+/* Pause animation when user hovers over the section */
+.logo-slider:hover .logos-slide {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .logos-slide img {
+        height: 30px;
+        margin: 0 20px;
+    }
+}
