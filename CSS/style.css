@@ -430,6 +430,7 @@ body {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.5;
+    text-align: center;
 }
 
 .course-card:hover .card-img-top {
@@ -438,8 +439,15 @@ body {
 
 .course-card:hover{
   
-  box-shadow: #848383 0px 10px 50px; /* Shadow effect on hover */
+  box-shadow: #2c73a6 0px 0px 30px; /* Shadow effect on hover */
 }
+
+.col-12:nth-child(1) .animate-card { animation-delay: 0.1s; }
+.col-12:nth-child(2) .animate-card { animation-delay: 0.3s; }
+.col-12:nth-child(3) .animate-card { animation-delay: 0.5s; }
+.col-12:nth-child(4) .animate-card { animation-delay: 0.7s; }
+.col-12:nth-child(5) .animate-card { animation-delay: 0.9s; }
+
 
 .combined-quote {
     font-size: clamp(12px, 3vw, 20px);
@@ -558,7 +566,18 @@ body {
     font-size: 0.7rem;
     padding-bottom: 2px;
 }
-/* --- Improved Graphics Layout --- */
+.AI-btn{
+    background-color: #E76B00;
+    color: #010729;
+}
+
+.AI-btn:hover {
+    background-color: #010729;
+    color: white;
+    box-shadow: 0 0 25px #2c73a6;
+    filter: brightness(1.1);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease;
+}
 
 /* The container that holds all images */
 .graphics-container-flex {
@@ -706,5 +725,193 @@ body {
     }
     .section-title {
         font-size: 1.8rem;
+    }
+}
+
+/* 1. Animated Section Background */
+.training-support {
+    /* background: linear-gradient(-45deg, #010729, #0a134d, #010729, #050a24); */
+    /* background-size: 400% 400%; */
+    /* animation: gradientBG 15s ease infinite; */
+    /* overflow: hidden; */
+}
+
+/* @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
+
+.title-underline {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    /* background: #ffffff; */
+    border-radius: 2px;
+}
+
+/* 3. The Animated Cards */
+.support-card {
+    background: #ffffff;
+    padding: 20px 10px;
+    border-radius: 20px;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.support-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0px 0px 30px rgba(94, 165, 215, 0.3);
+}
+
+/* 4. Rounded Circle for Icons */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #010729;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.support-card:hover .icon-circle {
+    background: #010729;
+    color: #ffffff;
+    border-color: #5ea5d7;
+}
+
+/* Entrance Animation for the cards */
+.animate-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered timing for entrance */
+.col-12:nth-child(1) .animate-card { animation-delay: 0.1s; }
+.col-12:nth-child(2) .animate-card { animation-delay: 0.3s; }
+.col-12:nth-child(3) .animate-card { animation-delay: 0.5s; }
+.col-12:nth-child(4) .animate-card { animation-delay: 0.7s; }
+.col-12:nth-child(5) .animate-card { animation-delay: 0.9s; }
+.col-12:nth-child(6) .animate-card { animation-delay: 1.1s; }
+
+/* Section Background */
+.batch-schedule {
+    background-color: #010729; /* Deep Navy from image */
+}
+
+
+/* White Content Card */
+.schedule-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    color: #333;
+}
+
+
+
+/* Animated Primary Button */
+.btn-primary-custom {
+    background-color: #ff6a00; /* Vibrant Orange/Pink */
+    border: none;
+    color: #010729;
+    box-shadow: 0 4px 15px rgba(238, 9, 121, 0.3);
+    transition: all 0.4s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: #010729;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #2c73a6;
+    filter: brightness(1.1);
+}
+
+/* Text Sizing for Mobile */
+@media (max-width: 768px) {
+    .schedule-list li {
+        font-size: 0.95rem;
+    }
+    .check-circle {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+}
+
+/* Section Background */
+.learning-advantages {
+    background-color: #010729; /* Deep Navy */
+}
+
+/* Heading Underline */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Advantage Cards */
+.advantage-card {
+    background-color: #ffffff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Icon Styling */
+.adv-icon {
+    font-size: 2.5rem;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.advantage-card:hover .adv-icon {
+    color: #ff6a00; /* Subtle orange color shift on hover */
+}
+
+/* Typography spacing */
+.advantage-card h5 {
+    font-size: 1.15rem;
+    letter-spacing: -0.5px;
+}
+
+.advantage-card p {
+    line-height: 1.5;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .advantage-card {
+        padding: 30px 15px;
     }
 }
